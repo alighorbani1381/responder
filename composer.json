@@ -1,0 +1,50 @@
+{
+    "name": "alighorbani/responder",
+    "description": "Make a Response to as fast as light!",
+    "keywords": [
+        "laravel-response",
+        "laravel-request",
+        "laravel-api"
+    ],
+    "homepage": "https://github.com/alighorbani1381/responder",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Ali",
+            "email": "alighorbani20002@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "8.0.*",
+        "laravel/framework":"6.*|7.*|8.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alighorbani\\Responder\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Alighorbani\\Responder\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Alighorbani\\Responder\\ResponderServiceProvider"
+            ]
+        }
+    }
+}
