@@ -88,7 +88,9 @@ abstract class BaseResponder implements ResponderInterface
         // handle single resource response
         $isSupportIterable = $data instanceof Mongodb || $data instanceof SupportCollection || $data instanceof Collection;
 
-        if ($isSupportIterable && $data->count() == 1) {
+        $notCountable = (!in_array(\Countable::class, class_implements($data)));
+
+        if ($isSupportIterable && $data->count() == 1 && $notCountable) {
             // sometime we need to got a first items of collection but some another times we get the first collection it self
             try {
                 $data = $data->first();
