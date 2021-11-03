@@ -90,7 +90,7 @@ abstract class BaseResponder implements ResponderInterface
 
         $notCountable = (!in_array(\Countable::class, class_implements($data)));
 
-        if ($isSupportIterable && $data->count() == 1 && $notCountable) {
+        if ($isSupportIterable && $notCountable) {
             // sometime we need to got a first items of collection but some another times we get the first collection it self
             try {
                 $data = $data->first();
