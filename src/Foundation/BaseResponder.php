@@ -112,9 +112,11 @@ abstract class BaseResponder implements ResponderInterface
             $data = $items;
         }
 
-        if (in_array(JsonResource::class, class_parents($collection))) {
-            return [$collection::collection($data), $pagination];
+        if (!in_array(JsonResource::class, class_parents($collection))) {
+            throw new InvalidArgumentException(sprintf("class (%s) dosn't extend the JsonResource Class Check it ", $collection));
         }
+
+        return [$collection::collection($data), $pagination];
     }
 
     protected function prepareResponseByData($title, $data, $pagination, callable|string|null $responseMaker)
