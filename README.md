@@ -5,7 +5,7 @@
 We solve some problem for You with a package You can call Responder 
 
 actually developers make a specific structure for api that developed
-
+ 
 ###  ✅️ Advantages
  <ol>
 <li>You don't need to set pagination logic in your resource because inject automatically</li>
