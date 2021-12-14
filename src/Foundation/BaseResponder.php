@@ -166,13 +166,19 @@ abstract class BaseResponder implements ResponderInterface
         return response($info, $statusCode);
     }
 
-    public function serverError($message = 'internal server error has occurred!')
+    public function serverError($message = 'internal server error has occurred!', $data = null)
     {
         if (array_key_exists($message, self::$responseMessage)) {
             $message = self::$responseMessage[$message];
         }
 
-        return response(['success' => false, 'message' => $message], Response::HTTP_INTERNAL_SERVER_ERROR);
+        $response = ['success' => false, 'message' => $message];
+
+        if (!is_null($data)) {
+            $response['result'] = $data;
+        }
+
+        return response($response, Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 
     public function unauthenticError()
