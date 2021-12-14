@@ -8,7 +8,7 @@ interface ResponderInterface
 
     public function successfulResponse($success, $data, $messageTitle, $statusCode);
 
-    public function serverError($message);
+    public function serverError($message, $data);
 
     public function unauthenticError();
 
